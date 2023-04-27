@@ -14,10 +14,10 @@ The challenge is to:
   -Encapsulate the app in a Docker
   -Deploy the app in a hostig service
 
-There is a virtual enviroment called "brewry-workspace"
 There are intalled all necesary libs and listed at the requirements.txt using 
 > pip freeze > requirements.txt
 
 In order to reinstall if it is necesary execute
 > pip install -r requirements.txt
+
 
