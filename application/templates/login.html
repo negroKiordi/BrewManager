@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Brewry Managment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/main.css')}}"/>
+</head>
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <form name="login" action="" method="post" validation="true">
+            <fieldset class="form-group">
+                <legend>{{title}}</legend> 
+                {{ form.hidden_tag() }}
+
+                <p>
+                    {{ form.email.label }}<br>
+                    {{ form.email(size=40) }}
+                    {% for error in form.email.errors %}
+                        <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=40) }}
+                    {% for error in form.password.errors %}
+                        <span class="error-message">{{ error }}</span>
+                    {% endfor %}
+                </p>
+
+                <p>
+                    {{ form.submit() }}
+                </p>
+            </fieldset>
+        </form>
+
+        <div class="bottom-container">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                    <div class="alert alert-{{category}}">
+                        <p> {{ message }}</p>
+                    </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+    </div>
+</div>
+</html>
